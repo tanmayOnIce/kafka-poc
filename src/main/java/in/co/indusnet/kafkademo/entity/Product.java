@@ -23,7 +23,7 @@ public class Product {
 	@Column(name = "image_link")
 	private String imageLink;
 	
-	private BigDecimal price;
+	private String price;
 	
 	@Column(name = "product_type")
 	private ProductType productTypes;

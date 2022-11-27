@@ -14,6 +14,7 @@ import org.springframework.kafka.core.ProducerFactory;
 
 @Configuration
 public class KafkaConfigs {
+	public static final String WATCHED_PRODUCTS = "watched-products";
 	
 /*	@Bean
 	public ProducerFactory<String, String> producerFactory() {
@@ -29,7 +30,7 @@ public class KafkaConfigs {
 
 	@Bean
 	public NewTopic createProductWatchedTopic() {
-		return TopicBuilder.name("watched-products")
+		return TopicBuilder.name(WATCHED_PRODUCTS)
 				.partitions(2)
 				.replicas(1)
 				.build();

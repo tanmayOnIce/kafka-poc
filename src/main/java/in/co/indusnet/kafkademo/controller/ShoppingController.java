@@ -4,6 +4,7 @@ import java.security.Principal;
 import java.util.List;
 
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +30,8 @@ public class ShoppingController {
 	}
 	
 	@GetMapping("/id/{productId}")
-	public Product getProduct(@PathVariable("productId") Long productId) {
-		return productService.findById(productId);
+	public Product getProduct(@PathVariable("productId") Long productId, Authentication authentication) {
+		return productService.findById(productId,authentication);
 	}
 
 	@GetMapping("/hello")

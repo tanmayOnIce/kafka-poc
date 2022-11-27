@@ -1,10 +1,12 @@
 package in.co.indusnet.kafkademo.controller;
 
+import in.co.indusnet.kafkademo.request.AddUserRequest;
 import in.co.indusnet.kafkademo.service.impl.TokenService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -25,6 +27,11 @@ public class AuthController {
         String token = tokenService.generateToken(authentication);
         logger.debug("Token granted : {} to user :{}",token,authentication.getName());
         return token;
+    }
+
+    @PostMapping("/signup")
+    public String signup(@RequestBody AddUserRequest request) {
+        return "";
     }
 
 }
